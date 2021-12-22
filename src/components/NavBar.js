@@ -1,20 +1,21 @@
 import './NavBar.css';
+import { Link } from 'react-router-dom';
 
 const NavBar = () => {
   return (
     <nav>
       {/* TODO: add relative links using ReactRouter */}
       <li>
-        <a href="#">Dashboard</a>
+        <Link className="Link" to="/">Dashboard</Link>
       </li>
       <li>
-        <a href="#">Calendar</a>
+        <Link className="Link" to="/stats">Statistics</Link>
       </li>
       <li>
-        <a href="#">Statistics</a>
+        <Link className="Link" to="/records">Records</Link>
       </li>
       <li>
-        <a href="#">Records</a>
+        <Link className="Link" to="/calendar">Calendar</Link>
       </li>
     </nav>
   )

@@ -15,11 +15,11 @@ li {
   color: black;
 }
 
-a {
+.Link {
   text-decoration: none;
   transition: all 0.25s ease-out;
 }
 
-a:hover {
+.Link:hover {
   padding-left: 10px;
 }
