@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+/* Added CSS */
+.Body-Container {
+  display: flex;
+  height: 100vh;
+}
+
+.Nav-Bar {
+  width: 150px;
+}
+
+.App-content {
+  padding: 10px;
+}

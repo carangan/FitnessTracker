@@ -1,0 +1,25 @@
+/* 
+  Sample CSS for Navigation Bar 
+  Can change later
+*/
+
+nav {
+  background-color: whitesmoke;
+}
+
+li {
+  padding: 8px;
+  font-size: 20px;
+  font-weight: bold;
+  list-style: none;
+  color: black;
+}
+
+a {
+  text-decoration: none;
+  transition: all 0.25s ease-out;
+}
+
+a:hover {
+  padding-left: 10px;
+}
