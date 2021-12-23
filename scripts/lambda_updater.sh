@@ -2,7 +2,7 @@
 
 cd lambda
 
-zip -r newHelloWorld.zip newHelloWorld.py
+zip -r lambda_function.zip lambda_function.py
 
 
 
@@ -10,6 +10,6 @@ zip -r newHelloWorld.zip newHelloWorld.py
 aws lambda update-function-code \
 --function-name NewHelloWorld \
 --region us-east-2 \
---zip-file fileb://newHelloWorld.zip
+--zip-file fileb://lambda_function.zip
 
 rm -r newHelloWorld.zip
