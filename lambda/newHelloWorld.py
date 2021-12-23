@@ -23,6 +23,7 @@ def lambda_handler(event, context):
             'LatestGreetingTime':now
             })
 # return a properly formatted JSON object
+# EAT DAT PUSSY
     return {
         'statusCode': 200,
         'body': json.dumps('Hello from Lambda, ' + name)
