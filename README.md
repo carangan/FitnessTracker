@@ -6,6 +6,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 In the project directory, you can run:
 
+### `Update AWS Lambda`
+aws lambda update-function-code \
+--function-name my-function-name \
+--region us-east-1 \
+--zip-file fileb://lambda.zip
+
 ### `npm start`
 
 Runs the app in the development mode.\
