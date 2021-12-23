@@ -23,7 +23,6 @@ const Dashboard = () => {
         .catch((error) => {
           console.log(error);
         });
-      console.log(process.env.REACT_APP_AWS_KEY);
     }
   };
 

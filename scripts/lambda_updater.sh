@@ -12,4 +12,4 @@ aws lambda update-function-code \
 --region us-east-2 \
 --zip-file fileb://lambda_function.zip
 
-rm -r newHelloWorld.zip
+rm -r lambda_function.zip
