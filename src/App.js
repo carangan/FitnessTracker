@@ -3,24 +3,40 @@ import './App.css';
 import { Dashboard, Records, Statistics, Calendar } from './views';
 import NavBar from './components/NavBar';
 import { Routes, Route } from 'react-router-dom';
+import PageLayout from './components/PageLayout';
+import { red } from '@mui/material/colors';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+
+const theme = createTheme({
+  palette: {
+    type: 'light',
+    primary: {
+      main: '#3f51b5',
+    },
+    secondary: {
+      main: '#f50057',
+    },
+  },
+  typography: {
+    fontFamily: 'Roboto',
+  },
+});
 
 function App() {
-
-
   return (
-    <div className="Body-Container">
+    <ThemeProvider theme={theme}>
       {
         /* <Example /> */
         /* Uncomment line for React Example */
       }
-      <NavBar className="Nav-Bar" />
+      <NavBar />
       <Routes>
-        <Route path="stats" element={<Statistics />}></Route>
-        <Route path="records" element={<Records />}></Route>
-        <Route path="calendar" element={<Calendar />}></Route>
-        <Route exact path="/" element={<Dashboard />}></Route>
+        <Route path="stats"    element={<PageLayout><Statistics /></PageLayout>}></Route>
+        <Route path="records"  element={<PageLayout><Records /></PageLayout>}></Route>
+        <Route path="calendar" element={<PageLayout><Calendar /></PageLayout>}></Route>
+        <Route exact path="/"  element={<PageLayout><Dashboard /></PageLayout>}></Route>
       </Routes>
-    </div>
+    </ThemeProvider>
   );
 }
 

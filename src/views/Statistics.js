@@ -1,7 +1,10 @@
+import { Typography, Divider } from "@mui/material";
+
 const Statistics = () => {
   return (
     <>
-      <h1>Statistics</h1>
+      <Typography variant="h2">Statistics</Typography>
+      <Divider />
     </>
   )
 }

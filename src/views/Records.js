@@ -1,7 +1,9 @@
+import { Typography, Divider } from "@mui/material";
 const Records = () => {
   return (
     <>
-      <h1>Records</h1>
+      <Typography variant="h2">Records</Typography>
+      <Divider />
     </>
   )
 }

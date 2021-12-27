@@ -1,7 +1,10 @@
+import { Typography, Divider } from '@mui/material'
+
 const Calendar = () => {
   return (
     <>
-      <h1>Calendar</h1>
+      <Typography variant="h2">Calendar</Typography>
+      <Divider />
     </>
   )
 }

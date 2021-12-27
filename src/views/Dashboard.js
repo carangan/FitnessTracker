@@ -1,38 +1,76 @@
 import { useState } from "react";
 import axios from "axios";
 
+import { 
+  Box, 
+  Button,
+  ButtonGroup, 
+  Divider, 
+  Typography, 
+  FormControl,
+  InputLabel,
+  Input
+} from "@mui/material";
+
 const Dashboard = () => {
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault ();
     if (process.env.REACT_APP_AWS_KEY) {
-      const body = {
-        headers: {
-          'Access-Control-Allow-Origin': '*',
-        },
-        "firstName": firstName,
-        "lastName": lastName
-      }
+      // const body = {
+      //   headers: {
+      //     'Access-Control-Allow-Origin': '*',
+      //   },
+      //   "firstName": firstName,
+      //   "lastName": lastName,
+      //   "DOB": "1/1/2000",
+      //   "email": "malpractice@gmail.com"
+      // }
 
-      axios.post(process.env.REACT_APP_AWS_KEY, body)
-        .then((res) => {
-          console.log(res);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      // axios.post(process.env.REACT_APP_AWS_KEY, body)
+      //   .then((res) => {
+      //     console.log(res);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
     }
   };
 
   return (
     <>
-      <h1>Dashboard</h1>
-      <input value={firstName} onChange={(event) => setFirstName(event.target.value)}></input>
-      <input value={lastName} onChange={(event) => setLastName(event.target.value)}></input>
-      <button onClick={() => handleSubmit ()}></button>
-      <div>{firstName} {lastName} is stupid.</div>
+      <Typography variant="h2">Dashboard</Typography>
+      <Divider />
+      <Box
+        component="form"
+        noValidate
+        autoComplete="off"
+        onSubmit={handleSubmit}
+        sx={{
+          pt: 3,
+          "display": "block",
+          "& > :not(style)": { m: 1 },
+        }}>
+        <FormControl required>
+          <InputLabel htmlFor="first-name">First Name</InputLabel>
+          <Input required id="first-name" value={firstName} onChange={(e) => setFirstName(e.target.value)}></Input>
+        </FormControl>
+        <FormControl required>
+          <InputLabel htmlFor="last-name">Last Name</InputLabel>
+          <Input id="last-name" value={lastName} onChange={(e) => setLastName(e.target.value)}></Input>
+        </FormControl>
+        <ButtonGroup>
+          <Button 
+            type="submit"
+            color="secondary" 
+            variant="contained">
+              <Typography variant="button">SUBMIT</Typography>
+          </Button>
+        </ButtonGroup>
+      </Box>
     </>
   )
 }
