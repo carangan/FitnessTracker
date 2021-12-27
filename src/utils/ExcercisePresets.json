@@ -1,0 +1,30 @@
+{
+    "Pushups": {
+      "MuscleGroups": [
+        "Chest"
+        ],
+      "Reps": true,
+      "Weight": true,
+      "Time": false,
+      "Distance": false
+      
+    },
+    "Bench Press": {
+      "MuscleGroups": [
+        "Chest"
+        ],
+      "Reps": true,
+      "Weight": true,
+      "Time": false,
+      "Distance": false
+    },
+    "Cardio": {
+      "MuscleGroups": [
+        "Legs, Cardio"
+        ],
+      "Reps": true,
+      "Weight": false,
+      "Time": true,
+      "Distance": true
+    }
+  }
