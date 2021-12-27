@@ -24,7 +24,8 @@ def lambda_handler(event, context):
             'ID': name,
             'DOB': dob,
             'Email': email,
-            'LatestGreetingTime':now
+            'LatestGreetingTime':now,
+            'PersonalExercises': {}
             })
 # return a properly formatted JSON object
 # EAT DAT PUSSY
