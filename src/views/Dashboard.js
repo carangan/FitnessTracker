@@ -31,7 +31,7 @@ const Dashboard = () => {
         "DOB": "1/1/2000",
         "email": "malpractice@gmail.com"
       }
-
+      
       axios.post(process.env.REACT_APP_AWS_KEY, body)
         .then((res) => {
           console.log(res);
