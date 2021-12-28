@@ -19,6 +19,7 @@ const Dashboard = () => {
   const [dob, setDOB] = useState("");
   const [email, setEmail] = useState("");
 
+<<<<<<< HEAD
   const handleSubmit = (e) => {
     e.preventDefault ();
     if (process.env.REACT_APP_AWS_KEY) {
@@ -31,6 +32,16 @@ const Dashboard = () => {
       //   "DOB": "1/1/2000",
       //   "email": "malpractice@gmail.com"
       // }
+=======
+  const handleSubmit = () => {
+    if (process.env.REACT_APP_AWS_KEY+"/updatePersonalExercise") {
+      const body = {
+        "firstName": firstName,
+        "lastName": lastName,
+        "email": email,
+        "DOB": dob
+      }
+>>>>>>> d713323 (format)
 
       // axios.post(process.env.REACT_APP_AWS_KEY, body)
       //   .then((res) => {
