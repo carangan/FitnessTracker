@@ -14,7 +14,8 @@ import {
   FormControl,
   OutlinedInput,
   Box,
-  MenuItem
+  MenuItem,
+  Fab
 } from "@mui/material";
 import { useState } from "react";
 import mg from '../utils/MuscleGroups.json'
@@ -90,13 +91,15 @@ const Presets = () => {
       <Divider />
       <Button
         variant="outlined"
-        onClick={() => setOpen (true)}>Enter Record</Button>
+        onClick={() => setOpen (true)}>Enter New Preset</Button>
+      <Fab color="primary" aria-label="add">
+      </Fab>
       <Dialog open={open}>
         <DialogTitle>Exercise </DialogTitle>
 
-        <InputLabel htmlFor="id"></InputLabel>
+        <InputLabel htmlFor="id">Username</InputLabel>
         <Input required id="id" value={value} onChange={(e) => setValue (e.target.value)}></Input>
-        <InputLabel htmlFor="name"></InputLabel>
+        <InputLabel htmlFor="name">Exercise</InputLabel>
         <Input required id="name" value={name} onChange={(e) => setName (e.target.value)}></Input>
         <FormControlLabel
           label="Weight"
@@ -120,7 +123,7 @@ const Presets = () => {
 
         <div>
           <FormControl sx={{ m: 1, width: 300 }}>
-            <InputLabel id="demo-multiple-chip-label">Moosle</InputLabel>
+            <InputLabel id="demo-multiple-chip-label">Muscle Groups</InputLabel>
             <Select
               labelId="demo-multiple-chip-label"
               id="demo-multiple-chip"
