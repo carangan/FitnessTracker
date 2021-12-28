@@ -9,7 +9,8 @@ const NavBar = () => {
     ['', 'Dashboard'],
     ['stats', 'Statistics'],
     ['records', 'Records'],
-    ['calendar', 'Calendar']
+    ['calendar', 'Calendar'],
+    ['presets', 'Presets'],
   ]
 
   return (

@@ -22,23 +22,23 @@ const Dashboard = () => {
   const handleSubmit = (e) => {
     e.preventDefault ();
     if (process.env.REACT_APP_AWS_KEY) {
-      // const body = {
-      //   headers: {
-      //     'Access-Control-Allow-Origin': '*',
-      //   },
-      //   "firstName": firstName,
-      //   "lastName": lastName,
-      //   "DOB": "1/1/2000",
-      //   "email": "malpractice@gmail.com"
-      // }
+      const body = {
+        headers: {
+          'Access-Control-Allow-Origin': '*',
+        },
+        "firstName": firstName,
+        "lastName": lastName,
+        "DOB": "1/1/2000",
+        "email": "malpractice@gmail.com"
+      }
 
-      // axios.post(process.env.REACT_APP_AWS_KEY, body)
-      //   .then((res) => {
-      //     console.log(res);
-      //   })
-      //   .catch((error) => {
-      //     console.log(error);
-      //   });
+      axios.post(process.env.REACT_APP_AWS_KEY, body)
+        .then((res) => {
+          console.log(res);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     }
   };
 
