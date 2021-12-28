@@ -28,7 +28,7 @@ def lambda_handler(event, context):
             'PersonalExercises': {}
             })
 # return a properly formatted JSON object
-# EAT DAT PUSSY
+# This shouldnt have been in a github soz
     return {
         'statusCode': 200,
         'body': json.dumps('Hello from Lambda, ' + name)
