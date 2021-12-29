@@ -13,7 +13,7 @@ table = dynamodb.Table('HelloWorldDatabase')
 now = strftime("%a, %d %b %Y %H:%M:%S +0000", gmtime())
 
 # define the handler function that the Lambda service will use as an entry point
-def updateExercises_handler(event, context):
+def update_exercises_handler(event, context):
 # extract values from the event object we got from the Lambda service and store in a variable
     name = event['ID']
     personalExercise = event['personalExercise']

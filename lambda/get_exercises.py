@@ -11,20 +11,23 @@ table = dynamodb.Table('HelloWorldDatabase')
 # define the handler function that the Lambda service will use as an entry point
 def get_handler(event, context):
 # extract values from the event object we got from the Lambda service and store in a variable
-    name = event['ID']
+    
+    #name = event['queryStringParameters']['id'].replace('+',' ')
+    name = event['queryStringParameters']['id'].replace('+', ' ')
     key = {'ID': name}
-# write name and time to the DynamoDB table using the object we instantiated and save response in a variable
+    # write name and time to the DynamoDB table using the object we instantiated and save response in a variable
     response = table.get_item(
             Key=key
         )
-        
+    #response['Item']['PersonalExercises']
     if 'Item' in response:
         return {
-        'statusCode': 200,
-        'body': response['Item']['PersonalExercises']
-    }
-    
-    return {
-        'statusCode': 502,
-        'body': json.dumps("Key not found")
-    }
+                'statusCode': 200,
+                'body': json.dumps(response['Item']['PersonalExercises'])
+            }
+    else:
+        return {
+            'statusCode': 502,
+            'body': json.dumps('Failure to find ID within table')
+        }
+           

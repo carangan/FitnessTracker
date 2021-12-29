@@ -20,7 +20,8 @@ const Records = () => {
     e.preventDefault ();
     if (process.env.REACT_APP_AWS_KEY) {
       console.log(username)
-      const response = await axios.get(process.env.REACT_APP_AWS_KEY + '/get-personal-exercise')
+      const queryStringParam = username.replace(' ', '+')
+      const response = await axios.get(process.env.REACT_APP_AWS_KEY + '/get-personal-exercise?id=' + queryStringParam)
       console.log(response)
       
     }
