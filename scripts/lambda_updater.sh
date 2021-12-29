@@ -20,3 +20,12 @@ aws lambda update-function-code \
 
 rm -r update_exercises.zip
 
+zip -r get_exercises.zip get_exercises.py
+
+aws lambda update-function-code \
+--function-name GetUserExercises \
+--region us-east-2 \
+--zip-file fileb://get_exercises.zip
+
+rm -r get_exercises.zip
+
