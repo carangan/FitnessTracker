@@ -139,7 +139,7 @@ const Presets = () => {
                 </Box>
               )}
             >
-              {mg['MuscleGrpoups'].map((name) => (
+              {mg['MuscleGroups'].map((name) => (
                 <MenuItem
                   key={name}
                   value={name}

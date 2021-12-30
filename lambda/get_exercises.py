@@ -31,6 +31,10 @@ def get_handler(event, context):
     else:
         return {
             'statusCode': 502,
+            'headers': {
+                    "Access-Control-Allow-Origin" : "*", #// Required for CORS support to work
+                    "Access-Control-Allow-Credentials" : True #// Required for cookies, authorization headers with HTTPS 
+                  },
             'body': json.dumps('Failure to find ID within table')
         }
         

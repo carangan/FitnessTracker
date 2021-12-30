@@ -9,11 +9,14 @@ import {
   Button,
   List,
   ListItem,
-  ListItemText
+  ListItemText,
+  DropDownMenu,
+  MenuItem
 } from "@mui/material";
 //import muscleGroups from '../utils/MuscleGroups.json';
 import { useState } from "react";
 import axios from "axios";
+import exercisePresets from '../utils/ExcercisePresets.json'
 
 const style = {
   width: '100%',
@@ -31,13 +34,19 @@ const Records = () => {
     if (process.env.REACT_APP_AWS_KEY) {
       console.log(username)
       const queryStringParam = username.replace(' ', '+')
-      const response = await axios.get(process.env.REACT_APP_AWS_KEY + '/get-personal-exercise?id=' + queryStringParam)
-      console.log(response)
-      setPersonalExercise(JSON.stringify(response))
+
+      await axios.get(process.env.REACT_APP_AWS_KEY + '/get-personal-exercise?id=' + queryStringParam)
+      .then((res) => {
+          console.log(res);
+          const allExercises = exercisePresets.exercises.concat(res.data);
+          setPersonalExercise(JSON.stringify(allExercises))
+          console.log(allExercises)
+      })
+      .catch((error) => {
+        console.log(error)
+      });
     }
   };
-
-
 
   return (
     <>
@@ -68,11 +77,10 @@ const Records = () => {
         </ButtonGroup>
       </Box>
       
-      <List sx={style} component="nav" aria-label="mailbox folders">
-        <ListItem>
-          <ListItemText primary={personalExercise} />
-        </ListItem>
-      </List>
+      <DropDownMenu>
+        <MenuItem value={1} primaryText="English"  />
+
+      </DropDownMenu>
       
     </>
   )
