@@ -1,16 +1,29 @@
 // import './NavBar.css';
 import { Link } from 'react-router-dom';
-import Drawer from '@mui/material/Drawer';
-import { Typography, List, ListItem, ListItemText } from '@mui/material';
+import { 
+  Drawer,
+  Typography, 
+  List, 
+  ListItem, 
+  ListItemText,
+  ListItemAvatar
+} from '@mui/material';
+import {
+  Dashboard,
+  TimelineOutlined,
+  ArchiveOutlined,
+  CalendarTodayOutlined,
+  AddBoxOutlined,
+} from '@material-ui/icons';
 
 const NavBar = () => {
 
   const pages = [
-    ['', 'Dashboard'],
-    ['stats', 'Statistics'],
-    ['records', 'Records'],
-    ['calendar', 'Calendar'],
-    ['presets', 'Presets'],
+    ['', 'Dashboard', <Dashboard />],
+    ['stats', 'Statistics', <TimelineOutlined />],
+    ['records', 'Records', <ArchiveOutlined />],
+    ['calendar', 'Calendar', <CalendarTodayOutlined />],
+    ['presets', 'Presets', <AddBoxOutlined />],
   ]
 
   return (
@@ -25,10 +38,13 @@ const NavBar = () => {
         }}>
         <List>
         {
-          pages.map (([link, text], index) => {
+          pages.map (([link, text, icon], index) => {
             return (
               <Link to={link} style={{ textDecoration: "none" }} key={text}>
                 <ListItem button>
+                  <ListItemAvatar>
+                    {icon}
+                  </ListItemAvatar>
                   <ListItemText>
                     <Typography variant="button">
                     {text}
