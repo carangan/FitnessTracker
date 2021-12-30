@@ -1,10 +1,9 @@
 // import logo from './logo.svg';
 import './App.css';
-import { Dashboard, Records, Statistics, Calendar, Presets } from './views';
+import { Dashboard, Records, Statistics, Calendar, ExerciseDay, Presets } from './views';
 import NavBar from './components/NavBar';
 import { Routes, Route } from 'react-router-dom';
 import PageLayout from './components/PageLayout';
-import { red } from '@mui/material/colors';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const theme = createTheme({
@@ -34,6 +33,7 @@ function App() {
         <Route path="stats"    element={<PageLayout><Statistics /></PageLayout>}></Route>
         <Route path="records"  element={<PageLayout><Records /></PageLayout>}></Route>
         <Route path="calendar" element={<PageLayout><Calendar /></PageLayout>}></Route>
+        <Route path="calendar/:day" element={<PageLayout><ExerciseDay /></PageLayout>}></Route>
         <Route path="presets" element={<PageLayout><Presets /></PageLayout>}></Route>
         <Route exact path="/"  element={<PageLayout><Dashboard /></PageLayout>}></Route>
       </Routes>
