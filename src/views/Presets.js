@@ -34,18 +34,6 @@ const Presets = () => {
 
   const handleSubscribe = () => {
 
-    /*
-    {
-            "name": "Pushups",
-            "muscleGroups": [
-              "Chest"
-              ],
-            "reps": true,
-            "weight": true,
-            "time": false,
-            "distance": false
-          }, 
-    */
     const body = {
       headers: {
         'Access-Control-Allow-Origin': '*',
