@@ -7,10 +7,7 @@ import {
   Input,
   ButtonGroup,
   Button,
-  List,
-  ListItem,
-  ListItemText,
-  DropDownMenu,
+  Select,
   MenuItem
 } from "@mui/material";
 //import muscleGroups from '../utils/MuscleGroups.json';
@@ -27,7 +24,8 @@ const style = {
 const Records = () => {
 
   const [username, setUserName] = useState("");
-  const [personalExercise, setPersonalExercise] = useState("temp");
+  const [personalExercise, setPersonalExercise] = useState(exercisePresets.exercises);
+  const [selectedExercise, setSelectedExercise] = useState("Pushups");
 
   const handleSubmit = async (e) => {
     e.preventDefault ();
@@ -39,7 +37,7 @@ const Records = () => {
       .then((res) => {
           console.log(res);
           const allExercises = exercisePresets.exercises.concat(res.data);
-          setPersonalExercise(JSON.stringify(allExercises))
+          setPersonalExercise(allExercises)
           console.log(allExercises)
       })
       .catch((error) => {
@@ -77,10 +75,25 @@ const Records = () => {
         </ButtonGroup>
       </Box>
       
-      <DropDownMenu>
-        <MenuItem value={1} primaryText="English"  />
-
-      </DropDownMenu>
+      <FormControl fullWidth>
+      <InputLabel id="personal-exercise-select-lable">Select Exercise</InputLabel>
+        <Select
+          labelId="personal-exercise-select-lable"
+          id="personal-exercise-select"
+          value={selectedExercise}
+          label="exercise"
+          onChange={(e)=>(setSelectedExercise(e.target.value))}
+        >
+          {personalExercise.map((obj) => (
+                <MenuItem
+                  key={obj.name}
+                  value={obj.name}
+                >
+                  {obj.name}
+                </MenuItem>
+              ))}
+        </Select>
+      </FormControl>
       
     </>
   )

@@ -17,6 +17,7 @@ import {
   MenuItem,
   Fab
 } from "@mui/material";
+import AddIcon from '@material-ui/icons/Add';
 import { useState } from "react";
 import mg from '../utils/MuscleGroups.json'
 import axios from 'axios'
@@ -93,6 +94,7 @@ const Presets = () => {
         variant="outlined"
         onClick={() => setOpen (true)}>Enter New Preset</Button>
       <Fab color="primary" aria-label="add">
+        <AddIcon />
       </Fab>
       <Dialog open={open}>
         <DialogTitle>Exercise </DialogTitle>
