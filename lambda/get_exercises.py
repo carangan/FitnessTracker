@@ -12,7 +12,6 @@ table = dynamodb.Table('HelloWorldDatabase')
 def get_handler(event, context):
 # extract values from the event object we got from the Lambda service and store in a variable
     
-    #name = event['queryStringParameters']['id'].replace('+',' ')
     name = event['queryStringParameters']['id'].replace('+', ' ')
     key = {'ID': name}
     # write name and time to the DynamoDB table using the object we instantiated and save response in a variable
@@ -23,6 +22,10 @@ def get_handler(event, context):
     if 'Item' in response:
         return {
                 'statusCode': 200,
+                'headers': {
+                    "Access-Control-Allow-Origin" : "*", #// Required for CORS support to work
+                    "Access-Control-Allow-Credentials" : True #// Required for cookies, authorization headers with HTTPS 
+                  },
                 'body': json.dumps(response['Item']['PersonalExercises'])
             }
     else:
@@ -30,4 +33,4 @@ def get_handler(event, context):
             'statusCode': 502,
             'body': json.dumps('Failure to find ID within table')
         }
-           
+        
